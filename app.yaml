@@ -10,4 +10,4 @@ handlers:
     script: auto
 
 env_variables:
-  API_BASE_URL: '$API_BASE_URL'
+  API_BASE_URL: 'SED_API_BASE_URL'

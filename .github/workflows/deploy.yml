@@ -8,6 +8,7 @@ on:
 env:
   PROJECT_ID: ${{ secrets.PROJECT_ID }}
   GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
+  API_BASE_URL: ${{ secrets.API_BASE_URL }}
 
 jobs:
   deploy:
@@ -40,7 +41,7 @@ jobs:
           echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
       - name: Replace app.yaml
         run: |
-          sed -i -e 's/$API_BASE_URL/aa/g' app.yaml
+          sed -i -e 's/SED_API_BASE_URL/$API_BASE_URL/g' app.yaml
       - name: Use cloud-sdk
         uses: docker://google/cloud-sdk:373.0.0
       - name: Deploy
