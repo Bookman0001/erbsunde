@@ -40,7 +40,7 @@ jobs:
           echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
       - name: Replace app.yaml
         run: |
-          sed -i -e 's/$API_BASE_URL/${{ secrets.API_BASE_URL }}/g' app.yaml
+          sed -i -e 's/$API_BASE_URL/${{ secrets.API_BASE_URL }}/' app.yaml
       - name: Use cloud-sdk
         uses: docker://google/cloud-sdk:373.0.0
       - name: Deploy
